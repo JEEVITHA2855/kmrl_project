@@ -1,0 +1,6 @@
+{
+  "Finance": ["finance@example.com"],
+  "Safety": ["safety@example.com"],
+  "Engineering": ["engineering@example.com"],
+  "Legal": ["legal@example.com"]
+}

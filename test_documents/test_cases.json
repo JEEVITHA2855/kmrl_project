@@ -1,0 +1,52 @@
+{
+    "test_cases": [
+        {
+            "document": "URGENT: Chemical spill in lab 4. Immediate evacuation required. Hazardous materials present. Multiple injuries reported.",
+            "expected": {
+                "departments": ["safety", "hr"],
+                "severity": "critical",
+                "keywords": ["chemical", "evacuation", "hazardous", "injuries"]
+            }
+        },
+        {
+            "document": "Maintenance notification: Equipment malfunction in Unit 2. Repair needed within 48 hours. Production may be delayed.",
+            "expected": {
+                "departments": ["maintenance"],
+                "severity": "medium",
+                "keywords": ["maintenance", "malfunction", "repair", "delay"]
+            }
+        },
+        {
+            "document": "HR Alert: High employee absence rate. Staff shortage affecting multiple departments. Immediate staffing required.",
+            "expected": {
+                "departments": ["hr"],
+                "severity": "high",
+                "keywords": ["staff", "employee", "absence"]
+            }
+        },
+        {
+            "document": "Notice: Regular equipment inspection completed. All systems functioning normally.",
+            "expected": {
+                "departments": ["maintenance"],
+                "severity": "low",
+                "keywords": ["inspection", "equipment"]
+            }
+        },
+        {
+            "document": "CRITICAL: Fire hazard detected in server room. Emergency response team required immediately. Evacuation protocol initiated.",
+            "expected": {
+                "departments": ["safety"],
+                "severity": "critical",
+                "keywords": ["fire", "hazard", "emergency", "evacuation"]
+            }
+        },
+        {
+            "document": "Joint safety and maintenance alert: Equipment malfunction causing safety concerns. Staff to avoid area B7.",
+            "expected": {
+                "departments": ["safety", "maintenance"],
+                "severity": "high",
+                "keywords": ["safety", "malfunction", "equipment"]
+            }
+        }
+    ]
+}

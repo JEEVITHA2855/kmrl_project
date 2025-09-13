@@ -1,0 +1,31 @@
+Safety Incident Report
+Date: 2023-11-20
+
+URGENT: Chemical Spill Incident in Manufacturing Unit 3
+
+Description:
+A significant chemical spill was detected in Manufacturing Unit 3 at approximately 09:30 AM. 
+Initial assessment indicates corrosive material leakage from storage tank B-7.
+
+Immediate Actions Required:
+1. Emergency evacuation of all personnel from Unit 3
+2. Maintenance team to inspect and repair storage tank B-7
+3. Safety team to conduct hazard assessment
+4. HR to account for all personnel and report any injuries
+
+Current Status:
+- Area has been cordoned off
+- Fire hazard warning issued due to chemical reactivity
+- Maintenance delay reported due to equipment unavailability
+- Two employees reported minor exposure and are being treated
+
+Priority: CRITICAL
+Response Time Required: Immediate
+
+Distribution:
+- Safety Department (Primary)
+- Maintenance Team
+- Human Resources
+- Emergency Response Team
+
+Please take immediate action as per standard operating procedures.

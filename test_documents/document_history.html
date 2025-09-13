@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Processing History</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .document-card {
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            position: relative;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+        }
+        .critical { border-left-color: #d32f2f; }
+        .high { border-left-color: #f57c00; }
+        .medium { border-left-color: #388e3c; }
+        .low { border-left-color: #1976d2; }
+        .severity-label {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+        }
+        .severity-label.critical { background: #d32f2f; }
+        .severity-label.high { background: #f57c00; }
+        .severity-label.medium { background: #388e3c; }
+        .severity-label.low { background: #1976d2; }
+        .info-section {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Document Processing History</h1>
+        <div id="documentList"></div>
+    </div>
+
+    <script>
+        async function loadDocuments() {
+            const container = document.getElementById('documentList');
+            try {
+                const response = await fetch('/api/documents');
+                if (!response.ok) throw new Error('Failed to fetch documents');
+                const data = await response.json();
+                displayDocuments(data);
+            } catch (error) {
+                container.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+
+        function displayDocuments(response) {
+            const container = document.getElementById('documentList');
+            const documents = response.documents || [];
+            
+            if (documents.length === 0) {
+                container.innerHTML = '<p>No documents processed yet.</p>';
+                return;
+            }
+
+            const html = documents.map(doc => `
+                <div class="document-card ${doc.highest_severity}">
+                    <div class="severity-label ${doc.highest_severity}">
+                        ${doc.highest_severity.toUpperCase()}
+                    </div>
+                    <h3>${doc.file_name}</h3>
+                    <p>Processed: ${new Date(doc.timestamp).toLocaleString()}</p>
+                    
+                    <div class="info-section">
+                        <p><strong>Notified Departments:</strong> ${doc.departments.join(', ')}</p>
+                        <p><strong>Detected Keywords:</strong> ${doc.keywords.join(', ')}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        // Load documents when page loads
+        loadDocuments();
+    </script>
+</body>
+</html>

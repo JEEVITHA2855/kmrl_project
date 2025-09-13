@@ -1,0 +1,3 @@
+TAG: Safety
+SUMMARY: The turbine maintenance delay could cause a safety hazard if ignored.
+TRANSLATED: Turbine kaam mein deri hone se suraksha khatra ho sakta hai.

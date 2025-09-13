@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Upload Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; }
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 40px 40px 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 8px;
+        }
+        .desc {
+            text-align: center;
+            color: #555;
+            margin-bottom: 24px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="file"] {
+            padding: 8px 0;
+        }
+        button {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:disabled {
+            background: #90caf9;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background: #1565c0;
+        }
+        #uploadStatus {
+            margin-top: 18px;
+            text-align: center;
+            font-weight: 600;
+            min-height: 24px;
+        }
+        .history-link {
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .history-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Documents</h1>
+        <div class="desc">
+            Select one or more documents to scan for alerts.<br>
+            After upload, you will be redirected to the processing history.
+        </div>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="fileInput">Choose documents:</label>
+            <input type="file" id="fileInput" name="files" multiple required>
+            <button type="submit" id="uploadBtn">Upload & Scan</button>
+        </form>
+        <div id="uploadStatus"></div>
+        <a href="document_history.html" class="history-link">View Document History</a>
+    </div>
+    <script>
+    document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const files = document.getElementById('fileInput').files;
+        const status = document.getElementById('uploadStatus');
+        const btn = document.getElementById('uploadBtn');
+        
+        if (!files.length) {
+            status.innerText = "Please select at least one file.";
+            return;
+        }
+
+        const formData = new FormData();
+        for (let i = 0; i < files.length; i++) {
+            formData.append('files', files[i]);
+        }
+
+        btn.disabled = true;
+        status.style.color = "#1976d2";
+        status.innerText = 'Uploading and scanning...';
+
+        try {
+            const response = await fetch('/api/upload', {  // Updated endpoint
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) throw new Error('Upload failed');
+            
+            const result = await response.json();
+            status.style.color = "#388e3c";
+            status.innerText = 'Upload successful! Redirecting...';
+            setTimeout(() => {
+                window.location.href = '/test_documents/document_history.html';
+            }, 1200);
+        } catch (err) {
+            status.style.color = "#d32f2f";
+            status.innerText = 'Error: ' + err.message;
+            btn.disabled = false;
+        }
+    });
+    </script>
+</body>
+</html>
