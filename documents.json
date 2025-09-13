@@ -2,189 +2,19 @@
   "documents": [
     {
       "file_name": "summarize_alert.py",
-      "timestamp": "2025-09-13 10:18:12",
-      "highest_severity": "medium",
-      "departments": [
-        "IT"
-      ],
-      "keywords": [
-        "urgent",
-        "confidential"
-      ],
-      "content_preview": "from transformers import pipeline\r\n\r\n# 1️⃣ Load summarization model\r\nsummarizer = pipeline(\"summ"
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 10:19:44",
-      "highest_severity": "low",
-      "departments": [
-        "IT"
-      ],
-      "keywords": [
-        "alert",
-        "confidential"
-      ],
-      "content_preview": "# alert_engine.py\r\nimport json\r\nfrom opensearchpy import OpenSearch, RequestsHttpConnection\r\nimport "
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 10:20:40",
-      "highest_severity": "low",
-      "departments": [
-        "Admin"
-      ],
-      "keywords": [
-        "review",
-        "alert"
-      ],
-      "content_preview": "# alert_engine.py\r\nimport json\r\nfrom opensearchpy import OpenSearch, RequestsHttpConnection\r\nimport "
-    },
-    {
-      "file_name": "fake_summary.txt",
-      "timestamp": "2025-09-13 10:20:53",
+      "timestamp": "2025-09-13 11:27:14",
       "highest_severity": "high",
       "departments": [
-        "Admin"
-      ],
-      "keywords": [
-        "confidential",
-        "review"
-      ],
-      "content_preview": "TAG: Safety\r\nSUMMARY: The turbine maintenance delay could cause a safety hazard if ignored.\r\nTRANSLA"
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 10:22:20",
-      "highest_severity": "low",
-      "departments": [
-        "HR"
-      ],
-      "keywords": [
-        "review",
-        "alert"
-      ],
-      "content_preview": "# alert_engine.py\r\nimport json\r\nfrom opensearchpy import OpenSearch, RequestsHttpConnection\r\nimport "
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 10:24:35",
-      "highest_severity": "critical",
-      "departments": [
         "General"
       ],
       "keywords": [
-        "urgent",
         "alert"
       ],
       "alerts": [
         {
-          "keyword": "urgent",
-          "severity": "critical",
-          "context": "[\"risk\", \"hazard\", \"danger\", \"urgent\", \"shutdown\", \"delayed\""
-        },
-        {
           "keyword": "alert",
           "severity": "high",
-          "context": "# alert_engine.py\r\nimport json\r\n"
-        }
-      ],
-      "content_preview": "# alert_engine.py\r\nimport json\r\nfrom opensearchpy import OpenSearch, RequestsHttpConnection\r\nimport time\r\nfrom datetime import datetime\r\n\r\nOPENSEARCH_HOST = \"localhost\"\r\nOPENSEARCH_PORT = 9200\r\nADMIN_"
-    },
-    {
-      "file_name": "summarize_alert.py",
-      "timestamp": "2025-09-13 10:59:47",
-      "highest_severity": "critical",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "urgent",
-        "alert"
-      ],
-      "alerts": [
-        {
-          "keyword": "urgent",
-          "severity": "critical",
-          "context": "s\r\nalert_keywords = [\"risk\", \"urgent\", \"safety\", \"incident\"]"
-        },
-        {
-          "keyword": "alert",
-          "severity": "high",
-          "context": "y:\")\r\nprint(summary)\r\n\r\n# 4️⃣ alert keywords\r\nalert_keywords"
-        }
-      ],
-      "content_preview": "from transformers import pipeline\r\n\r\n# 1️⃣ Load summarization model\r\nsummarizer = pipeline(\"summarization\")\r\n\r\n# 2️⃣ Read the sample document\r\nwith open(\"sample_document.txt\", \"r\") as f:\r\n    "
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 11:01:40",
-      "highest_severity": "critical",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "alert",
-        "urgent"
-      ],
-      "alerts": [
-        {
-          "keyword": "urgent",
-          "severity": "critical",
-          "context": "[\"risk\", \"hazard\", \"danger\", \"urgent\", \"shutdown\", \"delayed\""
-        },
-        {
-          "keyword": "alert",
-          "severity": "high",
-          "context": "# alert_engine.py\r\nimport json\r\n"
-        }
-      ],
-      "content_preview": "# alert_engine.py\r\nimport json\r\nfrom opensearchpy import OpenSearch, RequestsHttpConnection\r\nimport time\r\nfrom datetime import datetime\r\n\r\nOPENSEARCH_HOST = \"localhost\"\r\nOPENSEARCH_PORT = 9200\r\nADMIN_"
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 11:04:22",
-      "highest_severity": "critical",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "urgent",
-        "alert"
-      ],
-      "alerts": [
-        {
-          "keyword": "urgent",
-          "severity": "critical",
-          "context": "[\"risk\", \"hazard\", \"danger\", \"urgent\", \"shutdown\", \"delayed\""
-        },
-        {
-          "keyword": "alert",
-          "severity": "high",
-          "context": "# alert_engine.py\r\nimport json\r\n"
-        }
-      ]
-    },
-    {
-      "file_name": "alert_pipeline.py",
-      "timestamp": "2025-09-13 11:08:08",
-      "highest_severity": "critical",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "urgent",
-        "alert"
-      ],
-      "alerts": [
-        {
-          "keyword": "urgent",
-          "severity": "critical",
-          "context": "...s\" alert_keywords = [\"risk\", \"hazard\", \"danger\", \"urgent\", \"shutdown\", \"delayed\", \"threaten\", \"incid..."
-        },
-        {
-          "keyword": "alert",
-          "severity": "high",
-          "context": "...meadmin123!\" index_name = \"summarized_documents\" alert_keywords = [\"risk\", \"hazard\", \"danger\", \"urg..."
+          "context": "...print(summary)    if alerts: else:..."
         }
       ]
     },
@@ -224,42 +54,6 @@
     },
     {
       "file_name": "doc_test.txt",
-      "timestamp": "2025-09-13 11:12:29",
-      "highest_severity": "medium",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "attention"
-      ],
-      "alerts": [
-        {
-          "keyword": "attention",
-          "severity": "medium",
-          "context": "...a safety risk if not handled properly. immediate attention from the safety and engineering departme..."
-        }
-      ]
-    },
-    {
-      "file_name": "doc_test.txt",
-      "timestamp": "2025-09-13 11:17:42",
-      "highest_severity": "medium",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "attention"
-      ],
-      "alerts": [
-        {
-          "keyword": "attention",
-          "severity": "medium",
-          "context": "...a safety risk if not handled properly. immediate attention from the safety and engineering departme..."
-        }
-      ]
-    },
-    {
-      "file_name": "doc_test.txt",
       "timestamp": "2025-09-13 11:23:31",
       "highest_severity": "medium",
       "departments": [
@@ -277,88 +71,8 @@
       ]
     },
     {
-      "file_name": "summarize_alert.py",
-      "timestamp": "2025-09-13 11:27:14",
-      "highest_severity": "high",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "alert"
-      ],
-      "alerts": [
-        {
-          "keyword": "alert",
-          "severity": "high",
-          "context": "...print(summary)    if alerts: else:..."
-        }
-      ]
-    },
-    {
       "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:28:46",
-      "highest_severity": "low",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "info"
-      ],
-      "alerts": [
-        {
-          "keyword": "info",
-          "severity": "low",
-          "context": "...000058575 00000 n trailer << /root 4 0 r /size 7 /info 6 0 r >> startxref 58697 %%eof..."
-        }
-      ]
-    },
-    {
-      "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:31:41",
-      "highest_severity": "low",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "info"
-      ]
-    },
-    {
-      "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:40:52",
-      "highest_severity": "low",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "info"
-      ]
-    },
-    {
-      "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:43:15",
-      "highest_severity": "low",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "info"
-      ]
-    },
-    {
-      "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:44:15",
-      "highest_severity": "low",
-      "departments": [
-        "General"
-      ],
-      "keywords": [
-        "info"
-      ]
-    },
-    {
-      "file_name": "handwritten_13.pdf",
-      "timestamp": "2025-09-13 11:46:57",
+      "timestamp": "2025-09-13 12:08:08",
       "highest_severity": "low",
       "departments": [
         "General"

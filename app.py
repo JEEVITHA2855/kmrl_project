@@ -77,6 +77,15 @@ async def scan_for_alerts(content: bytes, filename: str):
 async def upload_files(files: list[UploadFile]):
     try:
         processed_docs = []
+        existing_docs = {}
+        
+        # Load existing documents into a dictionary keyed by filename
+        if os.path.exists(DOCUMENTS_JSON):
+            with open(DOCUMENTS_JSON, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                existing_docs = {doc["file_name"]: doc for doc in data.get("documents", [])}
+
+        # Process files, updating existing entries if present
         for file in files:
             content = await file.read()
             file_location = os.path.join(UPLOAD_DIR, file.filename)
@@ -92,15 +101,13 @@ async def upload_files(files: list[UploadFile]):
                 "departments": scan_results["departments"],
                 "keywords": scan_results["keywords"]
             }
+            # Update or add the document
+            existing_docs[file.filename] = doc_info
             processed_docs.append(doc_info)
 
-        all_docs = {"documents": []}
-        if os.path.exists(DOCUMENTS_JSON):
-            with open(DOCUMENTS_JSON, "r", encoding="utf-8") as f:
-                all_docs = json.load(f)
-        all_docs["documents"].extend(processed_docs)
+        # Save updated documents list
         with open(DOCUMENTS_JSON, "w", encoding="utf-8") as f:
-            json.dump(all_docs, f, ensure_ascii=False, indent=2)
+            json.dump({"documents": list(existing_docs.values())}, f, ensure_ascii=False, indent=2)
 
         return JSONResponse({
             "status": "success",
